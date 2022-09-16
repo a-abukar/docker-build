@@ -1,11 +1,11 @@
 ---
-name: Build and Push Python app to AWS ECR
+name: Build and Push Python app to Docker
 on: 
   push:
     branches: [ main ]
 jobs:
   build-and-push:
-    name: Build and Push to ECR
+    name: Build and Push to Docker
     runs-on: ubuntu-latest
     steps:
     - name: Checkour
