@@ -5,8 +5,16 @@ on:
     branches: [ main ]
 jobs:
   build-and-push:
-    name: Build and Push to Docker
+    name: Build image
     runs-on: ubuntu-latest
     steps:
     - name: Checkour
       uses: actions/checkout@v2
+
+    - name: Build and Push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+        image: abzz786/demo-app
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
